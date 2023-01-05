@@ -44,4 +44,8 @@ export class PrismaRelationshipRepository implements RelationshipRepository {
 
     return recommendations;
   }
+
+  async clean(): Promise<void> {
+    await this.prisma.relationship.deleteMany();
+  }
 }

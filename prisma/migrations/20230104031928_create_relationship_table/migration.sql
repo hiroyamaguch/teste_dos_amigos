@@ -1,0 +1,9 @@
+-- CreateTable
+CREATE TABLE "Relationship" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "person1CPF" TEXT NOT NULL,
+    "person2CPF" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "Relationship_person1CPF_fkey" FOREIGN KEY ("person1CPF") REFERENCES "Person" ("cpf") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Relationship_person2CPF_fkey" FOREIGN KEY ("person2CPF") REFERENCES "Person" ("cpf") ON DELETE RESTRICT ON UPDATE CASCADE
+);
